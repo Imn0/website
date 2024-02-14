@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>aaaaaa</title>
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,user-scalable = no"
+        />
+        <link rel="stylesheet" href="minesweeper.css" />
+        <link
+            href="https://fonts.cdnfonts.com/css/seven-segment"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="buttons">
+                <div class="counter" id="time-elapsed">000</div>
+                <button class="menu-option" id="flag-button">🚩</button>
+                <button class="menu-option" id="silly-guy">🙂</button>
+                <div class="counter" id="bombs-left">000</div>
+            </div>
+            <div id="board" class="board-style"></div>
+            <div class="dropdown-wrapper">
+                <div class="dropdown">
+                    <button class="dropbtn">Size</button>
+                        <div class="dropdown-content">
+                            <button id="small-button" class="size-option">
+                                small
+                            </button>
+                            <button id="medium-button" class="size-option">
+                                medium
+                            </button>
+                            <button id="big-button" class="size-option">
+                                big
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="minesweeper.js"></script>
+</html>

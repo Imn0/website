@@ -1,0 +1,212 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 5vmin;
+    margin-bottom: 2vmin;
+}
+
+.counter {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    width: 10vmin;
+    height: 7vmin;
+    font-size: 6vmin;
+    border: 0.3vmin solid dark;
+    background-color: black;
+    font-family: "Seven Segment", sans-serif;
+    color: red;
+}
+
+.menu-option {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border: 1.3vmin outset darkgray;
+    background-color: lightgray;
+    width: 7vmin;
+    height: 7vmin;
+    font-size: 2.6vmin;
+}
+
+.flag-on {
+    background-color: gray;
+
+    border: 1.3vmin inset darkgray;
+    box-sizing: border-box;
+    outline: 0.2vmin solid black;
+}
+
+.flag-off {
+    background-color: lightgray;
+
+    border: 1.3vmin outset darkgray;
+    box-sizing: border-box;
+    outline: 0.2vmin solid black;
+}
+
+.wrapper {
+    background-color: lightgray;
+    border: 1vmin solid black;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 2vmin 2vmin;
+}
+
+.board-style {
+    background-color: gray;
+    border: 0.3vmin solid black;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dropbtn {
+    border: 1vmin outset darkgray;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: lightgray;
+    height: 5vmin;
+    min-width: 13vmin;
+    font-family: "Seven Segment", sans-serif;
+    font-size: 3vmin;
+    outline: 0.2vmin solid black;
+    outline-offset: -0.1vmin;
+    box-sizing: border-box;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: gray;
+    border-style: inset;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-wrapper {
+    margin-top: 2vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    min-width: 13vmin;
+    z-index: 1;
+}
+
+.size-option {
+    border: 1vmin outset darkgray;
+    display: flex;
+    justify-content: center;
+    background-color: lightgray;
+    align-items: center;
+    height: 5vmin;
+    max-width: 13vmin;
+    min-width: 13vmin;
+    font-family: "Seven Segment", sans-serif;
+    font-size: 3vmin;
+    box-sizing: border-box;
+    outline: 0.2vmin solid black;
+    outline-offset: -0.1vmin;
+}
+
+.size-option:hover {
+    background-color: gray;
+    border-style: inset;
+}
+
+.dropdown-content .size-option {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    width: 13vmin;
+    flex-direction: row;
+    gap: 0vmin;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    border-style: outset;
+    font-size: 3vmin;
+    border: 0.8vmin outset darkgray;
+    box-sizing: border-box;
+    outline: 0.2vmin solid black;
+}
+.discovered {
+    background-color: lightgrey;
+    border-color: lightgrey;
+    border-style: solid;
+}
+
+.flag {
+    color: red;
+    font-size: 20px;
+}
+
+.bomb {
+    color: black;
+    background-color: red;
+    background-color: red;
+    border-color: red;
+    border-style: solid;
+}
+
+.x1 {
+    color: blue;
+}
+
+.x2 {
+    color: green;
+}
+
+.x3 {
+    color: red;
+}
+
+.x4 {
+    color: purple;
+}
+
+.x5 {
+    color: blueviolet;
+}
+
+.x6 {
+    color: blueviolet;
+}
+
+.x7 {
+    color: blueviolet;
+}
+
+.x8 {
+    color: blueviolet;
+}
