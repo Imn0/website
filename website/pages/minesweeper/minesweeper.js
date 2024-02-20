@@ -210,6 +210,11 @@ function clickTile() {
 
 function handleFlagClick(tile) {
     var [r, c] = tile.id.split("-").map((str) => Number(str));
+
+    if (isDiscoveredBoard[r][c] == 1) {
+        return;
+    }
+
     if (
         !$(tile).hasClass("flag-tile") &&
         bombsOnBoard > 0 &&
