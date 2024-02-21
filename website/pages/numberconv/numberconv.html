@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-    html {
-        overflow: hidden;
-        overscroll-behavior: none;
-    }
-    </style>
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <title>Converter</title>
-        <link rel="stylesheet" href="numberconv.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="numberconv.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
-    
+
     <body>
-       <div class="wrapper">
-            <div><input type="text" id="decimal" class="flex-item"><a class="description">Decimal</a></div>
-            <div><input type="text" id="binary" class="flex-item"><a class="description">Binary</a></div>
-            <div><input type="text" id="u2" class="flex-item">
-                <select id="u2-dropdown" class="dropdown-box">
-                    <option value="4">U2 4 bit</option>
-                    <option value="8">U2 8 bit</option>
-                    <option value="16">U2 16 bit</option>
-                    <option value="32">U2 32 bit</option>
-                </select>
+        <div class="wrapper">
+            <div>
+                <input type="text" id="decimal" class="number-box" />
+                <a class="description">Decimal</a>
             </div>
-            <div><input type="text" id="u1" class="flex-item">
-                <select id="u1-dropdown" class="dropdown-box">
-                <option value="4">U1 4 bit</option>
-                <option value="8">U1 8 bit</option>
-                <option value="16">U1 16 bit</option>
-                <option value="32">U1 32 bit</option>
-            </select></div>
-            <div><input type="text" id="oct" class="flex-item"><a class="description">Oct</a></div>
-            <div><input type="text" id="hex" class="flex-item"><a class="description">Hex</a></div>
-            <div><input type="text" id="float32" class="flex-item"><a class="description">float32</a></div>
-            <div><input type="text" id="custom" class="flex-item"><input type="text" id="custom-size" class="description"></div>
-       </div>
+            <div>
+                <input type="text" id="binary" class="number-box" />
+                <a class="description">Binary</a>
+            </div>
+            <div>
+                <input type="text" id="u2" class="number-box" />
+                <div style="display: flex; align-items: center">
+                    <a class="description">U2</a>
+                    <select id="u2-dropdown" class="dropdown-box description">
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                    </select>
+                    <a class="description">bits</a>
+                </div>
+            </div>
+            <div>
+                <input type="text" id="u1" class="number-box" />
+                <div style="display: flex; align-items: center">
+                    <a class="description">U1</a>
+                    <select id="u1-dropdown" class="dropdown-box description">
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                    </select>
+                    <a class="description"> bits</a>
+                </div>
+            </div>
+            <div>
+                <input type="text" id="oct" class="number-box" />
+                <a class="description">Oct</a>
+            </div>
+            <div>
+                <input type="text" id="hex" class="number-box" />
+                <a class="description">Hex</a>
+            </div>
+            <div>
+                <input type="text" id="float32" class="number-box" />
+                <a class="description">float32</a>
+            </div>
+            <div>
+                <input type="text" id="custom" class="number-box" />
+                <div>
+                    <a class="description">Custom base</a>
+                    <input
+                        maxlength="2"
+                        type="text"
+                        id="custom-size"
+                        class="description"
+                        style="width: 2ch"
+                    />
+                </div>
+            </div>
+        </div>
     </body>
-    
+
     <script src="numberconv.js"></script>
 </html>

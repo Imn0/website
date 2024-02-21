@@ -1,109 +1,78 @@
-*{
+* {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     font-family: monospace;
+    font-size: 3vmin;
 }
 
 body {
-    margin: 0; /* Remove default body margin */
-    
+    background:#ADD8E6;
 }
 
-.description{
-    max-width: 30vmin;
-    width: 30vmin;
-    height: 8vmin;
-    font-size: 7vmin;
-    margin-left: 3vmin;
-}
-
-.wrapper div{
-    margin: 1vmin;
-}
-
-.btn{
-    width: 70vmin;
-    height: 8vmin;
-    font-size: 7vmin;
-    border-radius: 8px;
-    background-color: #1e90ff;
-    color: white;
+input[type="text"] {
+    background: transparent;
     border: none;
-    cursor: pointer;
-
+    border-bottom: 0.1vmin solid #000;
+    outline: none;
 }
 
+.description {
+    margin-top: 1vmin;
+    margin-bottom: 3vmin;
+    font-size: 2vmin;
+    color: #333;
+    text-align: center;
+}
 .dropdown-box{
-    margin-left: 2vmin;
-
-    width: 40vmin;
-    height: 8vmin;
-    font-size: 7vmin;
-    border-radius: 8px;
+    color: #333;
+    background: transparent;
     border: none;
-    cursor: pointer;
-    position: relative;
+    font-size: 2vmin;
+}
 
+.dropdown-box option{
+    color: #333;
+    background: lightgray;
+    font-size: 2vmin;
+}
+
+.wrapper{
+    background: #B4D9CA;
+    border-radius: 4vmin;
+    padding: 4vmin;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.number-box{
+    text-align: center;
+    width: 32ch;
+}
+
+body {
+    margin: 0; 
 }
 
 .wrapper > div {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px;
-}
-
-.wrapper{
-
-    background-color: #deb887a2;
-    position: absolute;
-    display: flex;
     flex-direction: column;
-    border-radius: 8px;
-
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px 20px;
-
-    max-width: 90%;
-    overflow: auto;
+    align-items: center;
 }
 
-.flex-item{
-    min-width: 70vmin;
-    height: 4vmin;
-    font-size: 3.5vmin;
-}
-
-/* Media Query for smaller screens */
-@media screen and (max-width: 750px) {
-    .wrapper {
-        width: 80%; /* Adjust the width for smaller screens */
-        padding: 10px;
+@media (max-width: 768px) {
+    .number-box{
+        font-size: 4.4vmin;
+        width: 32ch;
     }
-
-    .wrapper>div {
-        flex-direction: column;
-    }
-
-    .btn,
-    .dropdown-box {
-        margin-top: 2vmin;
-        width: 75vmin;
-        font-size: 6vmin;
-    }
-
     .description {
-        margin-top: 2vmin;
-
-        font-size: 5vmin;
+        font-size: 3vmin;
     }
-
-    .flex-item {
-        width: 75vmin;
-        font-size: 4vmin;
+    .dropdown-box{
+        font-size: 3vmin;
+    }
+    .dropdown-box option{
+        font-size: 6vmin;
     }
 }
