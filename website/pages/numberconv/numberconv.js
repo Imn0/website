@@ -103,7 +103,7 @@ u2_box.addEventListener("input", function () {
     if (input.length > u2_dropdown.value) {
         u2_box.value = input.slice(input.length - u2_dropdown.value);
     }
-    
+
     if (input.length > 0) {
         input = u2ToSigned(input, u2_dropdown.value);
         binary = input;
