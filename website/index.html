@@ -1,17 +1,136 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Hello And Welcome</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello and Welcome</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="https://github.com/Imn0">GitHub</a>
+            <a href="https://www.linkedin.com/in/krzysztof-andrzejewski-8748252b3">Linkedin</a>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="showDropdown()">
+                    Projects
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="navbarDropdown">
+                    <a href="./pages/numberconv/numberconv.html">Number base converter</a>
+                    <a href="https://github.com/Imn0/Brick-Out">Break-Out</a>
+                    <a href="https://github.com/Imn0/PaperCompiler">PaperCompiler</a>
+                    <a href="https://github.com/Imn0/bfc-x86-64">BrainF*ck compiler</a>
+                    <a href="./pages/minesweeper/minesweeper.html">Minesweeper</a>
+                    <a href="./pages/2048/2048.html">2048</a>
+                    <a href="./pages/drawer/drawer.html">Pixel art drawer</a>
+                </div>
+            </div>
+            <a href="https://github.com/Imn0/advent_of_code_2023">Advent of Code</a>
+        </div>
 
-  <body>
-    <div class="flex-box">
-      <a href="./pages/numberconv/numberconv.html">Base Converter</a>
-      <a href="./pages/minesweeper/minesweeper.html">Minesweeper</a>
-      <a href="./pages/2048/2048.html">2048</a>
-      <a href="./pages/drawer/drawer.html">Pixel art</a>
-    </div>
-  </body>
+        <div class="spacer spacer-1 flip"></div>
+        <section class="hidden">
+            <div>
+                <h1>Paper Compiler</h1>
+                <div class="section-container">
+                    <div class="section-member">
+                        <p>Take a photo of your code, send it to the server, compile it and get the output. Written with Python/Flask and Flutter.</p>
+                        <a class="section-button" href="https://github.com/Imn0/PaperCompiler">Source</a>
+                    </div>
+                    <div class="section-member image-container">
+                        <img src="./assets/showcases/paperc.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="spacer spacer-2"></div>
+        <div class="spacer spacer-3"></div>
+
+        <section class="hidden">
+            <div>
+                <h1>BrainF*ck compiler</h1>
+                <div class="section-container">
+                    <div class="section-member">
+                        <p>Compile the most unreadable programming language to an executable. Written in rust.</p>
+                        <a class="section-button" href="https://github.com/Imn0/Brick-Out">Source</a>
+                    </div>
+                    <div class="section-member image-container">
+                        <img src="./assets/showcases/bfc.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="spacer spacer-4"></div>
+        <div class="spacer spacer-5"></div>
+
+        <section class="hidden">
+            <div>
+                <h1>Break-Out</h1>
+                <div class="section-container">
+                    <div class="section-member">
+                        <p>Recreation of the classic game written with C/SDL2.</p>
+                        <a class="section-button" href="https://github.com/Imn0/Brick-Out">Source</a>
+                    </div>
+                    <div class="section-member image-container">
+                        <img src="./assets/showcases/break-out.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="spacer spacer-6"></div>
+        <div class="spacer spacer-7"></div>
+
+        <section class="hidden">
+            <div>
+                <h1>Minesweeper</h1>
+                <div class="section-container">
+                    <div class="section-member">
+                        <p>
+                            Recreation of minesweeper game in javascript.
+
+                        </p>
+                        <a class="section-button" href="./pages/minesweeper/minesweeper.html">Play it</a>
+                    </div>
+                    <div class="section-member image-container">
+                        <img src="./assets/showcases/mine.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="spacer spacer-8"></div>
+        <footer>
+            <a href="https://github.com/Imn0/website">See webpage source on GitHub</a>
+        </footer>
+    </body>
+    <script defer>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        });
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach((element) => {
+            observer.observe(element);
+        });
+
+        function showDropdown() {
+            document.getElementById("navbarDropdown").classList.toggle("show-dropdown");
+        }
+
+        window.onclick = function (e) {
+            if (!e.target.matches(".dropbtn")) {
+                var navbarDropdown = document.getElementById("navbarDropdown");
+                if (navbarDropdown.classList.contains("show-dropdown")) {
+                    navbarDropdown.classList.remove("show-dropdown");
+                }
+            }
+        };
+    </script>
 </html>
