@@ -92,7 +92,7 @@ section h1 {
 }
 
 .section-button {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 section {
@@ -128,7 +128,7 @@ section {
     float: left;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 1em 1em;
     text-decoration: none;
 }
 
@@ -143,7 +143,7 @@ section {
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 1em 1em;
     background-color: inherit;
     font-family: inherit;
     font-size: 1em;
@@ -236,8 +236,21 @@ section {
         font-size: 2rem;
     }
 
+    .dropdown .dropbtn {
+        font-size: 0.7em;
+    }
+
+
     section > div {
         max-width: 90vw;
+    }
+
+    .navbar a {
+        font-size: 0.7em;
+    }
+
+    .section-button {
+        font-size: 0.7rem;
     }
 
     .section-member {
