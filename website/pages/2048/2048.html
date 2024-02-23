@@ -25,4 +25,9 @@
         </section>
     </body>
     <script src="2048.js" type="module"></script>
+    <script>
+        window.addEventListener('touchmove', function(event) {
+        event.preventDefault();
+    }, { passive: false });
+    </script>
 </html>
