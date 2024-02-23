@@ -5,37 +5,85 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hello and Welcome</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
     </head>
     <body>
         <div class="navbar">
             <a href="https://github.com/Imn0">GitHub</a>
-            <a href="https://www.linkedin.com/in/krzysztof-andrzejewski-8748252b3">Linkedin</a>
+            <a
+                href="https://www.linkedin.com/in/krzysztof-andrzejewski-8748252b3"
+                >Linkedin</a
+            >
             <div class="dropdown">
                 <button class="dropbtn" onclick="showDropdown()">
                     Projects
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content" id="navbarDropdown">
-                    <a href="./pages/numberconv/numberconv.html">Number base converter</a>
-                    <a href="https://github.com/Imn0/Brick-Out">Break-Out</a>
-                    <a href="https://github.com/Imn0/PaperCompiler">PaperCompiler</a>
-                    <a href="https://github.com/Imn0/bfc-x86-64">BrainF*ck compiler</a>
-                    <a href="./pages/minesweeper/minesweeper.html">Minesweeper</a>
                     <a href="./pages/2048/2048.html">2048</a>
+                    <a href="./pages/numberconv/numberconv.html"
+                        >Number base converter</a
+                    >
+                    <a href="./pages/minesweeper/minesweeper.html"
+                        >Minesweeper</a
+                    >
                     <a href="./pages/drawer/drawer.html">Pixel art drawer</a>
+                    <a href="https://github.com/Imn0/PaperCompiler"
+                        >PaperCompiler (GitHub)</a
+                    >
+                    <a href="https://github.com/Imn0/bfc-x86-64"
+                        >BrainF*ck compiler (GitHub)</a
+                    >
+                    <a href="https://github.com/Imn0/Brick-Out"
+                        >Break-Out (GitHub)</a
+                    >
                 </div>
             </div>
-            <a href="https://github.com/Imn0/advent_of_code_2023">Advent of Code</a>
+            <a href="https://github.com/Imn0/advent_of_code_2023"
+                >Advent of Code</a
+            >
         </div>
 
-        <div class="spacer spacer-1"></div>
+        <div class="spacer spacer-1" id="spacer-1-include"></div>
+
+        <section class="hidden">
+            <div>
+                <h1>2048</h1>
+                <div class="section-container">
+                    <div class="section-member">
+                        <p>
+                            Play a relaxing game of 2048 with cosy animations
+                            and responsive design.
+                        </p>
+                        <a class="section-button" href="./pages/2048/2048.html"
+                            >Play it!</a
+                        >
+                    </div>
+                    <div class="section-member image-container">
+                        <img src="./assets/showcases/2048.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="spacer spacer-9"></div>
+        <div class="spacer spacer-10"></div>
+
         <section class="hidden">
             <div>
                 <h1>Paper Compiler</h1>
                 <div class="section-container">
                     <div class="section-member">
-                        <p>Take a photo of your code, send it to the server, compile it and get the output. Written with Python/Flask and Flutter.</p>
-                        <a class="section-button" href="https://github.com/Imn0/PaperCompiler">Source</a>
+                        <p>
+                            Take a photo of your code, send it to the server,
+                            compile it and get the output. Written with
+                            Python/Flask and Flutter.
+                        </p>
+                        <a
+                            class="section-button"
+                            href="https://github.com/Imn0/PaperCompiler"
+                            >Source</a
+                        >
                     </div>
                     <div class="section-member image-container">
                         <img src="./assets/showcases/paperc.png" alt="" />
@@ -52,8 +100,15 @@
                 <h1>BrainF*ck compiler</h1>
                 <div class="section-container">
                     <div class="section-member">
-                        <p>Compile the most unreadable programming language to an executable. Written in rust.</p>
-                        <a class="section-button" href="https://github.com/Imn0/Brick-Out">Source</a>
+                        <p>
+                            Compile the most unreadable programming language to
+                            an executable. Written in rust.
+                        </p>
+                        <a
+                            class="section-button"
+                            href="https://github.com/Imn0/Brick-Out"
+                            >Source</a
+                        >
                     </div>
                     <div class="section-member image-container">
                         <img src="./assets/showcases/bfc.png" alt="" />
@@ -70,8 +125,14 @@
                 <h1>Break-Out</h1>
                 <div class="section-container">
                     <div class="section-member">
-                        <p>Recreation of the classic game written with C/SDL2.</p>
-                        <a class="section-button" href="https://github.com/Imn0/Brick-Out">Source</a>
+                        <p>
+                            Recreation of the classic game written with C/SDL2.
+                        </p>
+                        <a
+                            class="section-button"
+                            href="https://github.com/Imn0/Brick-Out"
+                            >Source</a
+                        >
                     </div>
                     <div class="section-member image-container">
                         <img src="./assets/showcases/break-out.png" alt="" />
@@ -88,11 +149,12 @@
                 <h1>Minesweeper</h1>
                 <div class="section-container">
                     <div class="section-member">
-                        <p>
-                            Recreation of minesweeper game in javascript.
-
-                        </p>
-                        <a class="section-button" href="./pages/minesweeper/minesweeper.html">Play it</a>
+                        <p>Recreation of minesweeper game in javascript.</p>
+                        <a
+                            class="section-button"
+                            href="./pages/minesweeper/minesweeper.html"
+                            >Play it!</a
+                        >
                     </div>
                     <div class="section-member image-container">
                         <img src="./assets/showcases/mine.png" alt="" />
@@ -101,8 +163,11 @@
             </div>
         </section>
         <div class="spacer spacer-8"></div>
+
         <footer>
-            <a href="https://github.com/Imn0/website">See webpage source on GitHub</a>
+            <a href="https://github.com/Imn0/website"
+                >See webpage source on GitHub</a
+            >
         </footer>
     </body>
     <script defer>
@@ -121,7 +186,9 @@
         });
 
         function showDropdown() {
-            document.getElementById("navbarDropdown").classList.toggle("show-dropdown");
+            document
+                .getElementById("navbarDropdown")
+                .classList.toggle("show-dropdown");
         }
 
         window.onclick = function (e) {
@@ -132,5 +199,29 @@
                 }
             }
         };
+        function includeHTML(file) {
+            fetch(file)
+                .then((response) => response.text())
+                .then((data) => {
+                    document.getElementById("spacer-1-include").innerHTML =
+                        data;
+                })
+                .catch((error) =>
+                    console.error("Error fetching included file:", error)
+                );
+        }
+        includeHTML("./assets/spacers/spacer1.html");
+
+        setTimeout(() => {
+            for (const i of [1, 2, 3, 5, 7, 9]) {
+                const dur = 6000 - i * 500 > 3000 ? 6500 - i * 500 : 3000;
+                const tween = KUTE.fromTo(
+                    `#path-${i}-1`,
+                    { path: `#path-${i}-1` },
+                    { path: `#path-${i}-2` },
+                    { repeat: 999, duration: dur, yoyo: true }
+                ).start();
+            }
+        }, 300);
     </script>
 </html>
