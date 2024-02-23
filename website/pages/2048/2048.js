@@ -14,8 +14,8 @@ const gameBoardElement = $("#game-board");
 const grid = new Grid(gameBoardElement);
 
 const setupTouchInput = () => {
-    $(window).on("touchstart", startTouch);
-    $(window).on("touchmove", moveTouch);
+    $(window).one("touchstart", startTouch);
+    $(window).one("touchend", moveEnd);
 };
 
 const setupKeyboardInput = () => {
@@ -48,41 +48,34 @@ const afterMove = () => {
 
 const getRandomNumber = (a, b) => {
     return Math.floor(Math.random() * (b - a + 1)) + a;
-  }
+};
 
 async function addGhostScore(newScore) {
-    const right = getRandomNumber(-5,-9);
-    const top = getRandomNumber(5,9);
-
+    const right = getRandomNumber(-5, -9);
+    const top = getRandomNumber(5, 9);
 
     let scoreGhost = $("<div></div>");
     scoreGhost.addClass("score-ghost");
-    
+
     scoreGhost.css("--animation-dir-right", `${right}vmin`);
     scoreGhost.css("--animation-dir-top", `${top}vmin`);
-    
-    
+
     scoreGhost.text(`+${newScore}`);
     $("#running-score-container").append(scoreGhost);
 
     setTimeout(() => {
-
         scoreGhost.addClass("fly");
     }, 50);
 
-
-    scoreGhost.on("transitionend", () => {   
+    scoreGhost.on("transitionend", () => {
         scoreGhost.remove();
     });
-
 }
-
 
 const updateScore = (newScore) => {
     $("#score-value").text(grid.score);
     if (newScore === 0) return;
     addGhostScore(newScore);
-
 };
 
 async function keyInput(e) {
@@ -132,17 +125,17 @@ async function keyInput(e) {
 }
 
 function startTouch(e) {
-    initialX = e.touches[0].clientX;
-    initialY = e.touches[0].clientY;
+    initialX = e.changedTouches[0].screenX;
+    initialY = e.changedTouches[0].screenY;
 }
 
-async function moveTouch(e) {
+async function moveEnd(e) {
     if (initialX === null || initialY === null) {
         return;
     }
 
-    let currentX = e.touches[0].clientX;
-    let currentY = e.touches[0].clientY;
+    let currentX = e.changedTouches[0].screenX;
+    let currentY = e.changedTouches[0].screenY;
 
     let diffX = initialX - currentX;
     let diffY = initialY - currentY;
@@ -175,6 +168,7 @@ async function moveTouch(e) {
 
     initialX = null;
     initialY = null;
+    setupTouchInput();
 }
 
 grid.randomEmptyCell().tile = new Tile(gameBoardElement);

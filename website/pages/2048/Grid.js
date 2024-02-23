@@ -20,7 +20,10 @@ class Grid {
     }
 
     mergeTiles() {
-        var newScore = this.cells.reduce((newScore, cell) => newScore + cell.mergeTiles(), 0);
+        var newScore = this.cells.reduce(
+            (newScore, cell) => newScore + cell.mergeTiles(),
+            0
+        );
         this.score += newScore;
         return newScore;
     }
@@ -56,7 +59,7 @@ class Grid {
             this.#cellsByCol.map((column) => [...column].reverse())
         );
     }
-    
+
     moveRight() {
         return this.#slide(this.#cellsByRow.map((row) => [...row].reverse()));
     }
@@ -79,7 +82,9 @@ class Grid {
     }
 
     canMoveDown() {
-        return this.#canMove(this.#cellsByCol.map((column) => [...column].reverse()));
+        return this.#canMove(
+            this.#cellsByCol.map((column) => [...column].reverse())
+        );
     }
 
     canMoveRight() {
