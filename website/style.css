@@ -80,7 +80,7 @@ body {
 }
 
 
-p {
+p, ul, li {
     font-size: 2rem;
 }
 
