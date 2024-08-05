@@ -12,7 +12,10 @@
             <div class="score-container">
                 <div class="score">
                     <a id="score-title">Score: </a>
-                    <div style="position: relative;" id="running-score-container">
+                    <div
+                        style="position: relative"
+                        id="running-score-container"
+                    >
                         <a id="score-value">0</a>
                     </div>
                 </div>
@@ -26,8 +29,12 @@
     </body>
     <script src="2048.js" type="module"></script>
     <script>
-        window.addEventListener('touchmove', function(event) {
-        event.preventDefault();
-    }, { passive: false });
+        window.addEventListener(
+            "touchmove",
+            function (event) {
+                event.preventDefault();
+            },
+            { passive: false }
+        );
     </script>
 </html>

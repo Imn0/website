@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hello and Welcome</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
     </head>
     <body>
@@ -28,20 +29,23 @@
                         >Minesweeper</a
                     >
                     <a href="./pages/drawer/drawer.html">Pixel art drawer</a>
+                    <a href="https://github.com/Imn0/rpi-pico-ac-control"
+                        >A/C controller (GitHub)</a
+                    >
                     <a href="https://github.com/Imn0/bfc-x86-64"
-                    >BrainF*ck compiler (GitHub)</a
+                        >BrainF*ck compiler (GitHub)</a
                     >
                     <a href="https://github.com/Imn0/Brick-Out"
-                    >Break-Out (GitHub)</a
+                        >Break-Out (GitHub)</a
                     >
                     <a href="https://github.com/Imn0/ish"
-                    >Linux shell (GitHub)</a
+                        >Linux shell (GitHub)</a
                     >
                     <a href="https://github.com/Imn0/3d-demo"
-                    >Raycaster renderer (GitHub)</a
+                        >Raycaster renderer (GitHub)</a
                     >
                     <a href="https://github.com/Imn0/redirector"
-                    >fd Redirector (GitHub)</a
+                        >fd Redirector (GitHub)</a
                     >
                     <a href="https://github.com/Imn0/PaperCompiler"
                         >PaperCompiler (GitHub)</a
@@ -57,19 +61,40 @@
 
         <section class="hidden">
             <div>
-                <h1>2048</h1>
+                <h1>Hello!</h1>
+                <p>
+                    My name is Chris, I am a third year computer science stutent
+                    at Wrocław University of Science and Technology. I am also
+                    an active member of
+                    <a href="https://akl.pwr.edu.pl/">Academic Flight Club</a>
+                    where I write software powering UAVs and drones including
+                    A/I and computer vision. During last few years I also wrote
+                    several programs/projects which you can explore below.
+                </p>
+                <a style="font-size: 1.3em">Contact</a> <a style="font-size: 1.3em" href="mailto:krzysztof.jan.andrzejewski@gmail.com">krzysztof.jan.andrzejewski<wbr/>@gmail.com</a>
+            </div>
+        </section>
+
+        <div class="spacer spacer-6"></div>
+        <div class="spacer spacer-7"></div>
+
+        <section class="hidden">
+            <div>
+                <h1>A/C controler</h1>
                 <div class="section-container">
                     <div class="section-member">
                         <p>
-                            Play a relaxing game of 2048 with cosy animations
-                            and responsive design.
+                            Control A/C from your web browser or using home
+                            assistant.
                         </p>
-                        <a class="section-button" href="./pages/2048/2048.html"
-                            >Play it!</a
+                        <a
+                            class="section-button"
+                            href="https://github.com/Imn0/rpi-pico-ac-control"
+                            >Source</a
                         >
                     </div>
                     <div class="section-member image-container">
-                        <img src="./assets/showcases/2048.png" alt="" />
+                        <img src="./assets/showcases/ac-control.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -84,18 +109,19 @@
                 <div class="section-container">
                     <div class="section-member">
                         <p>
-                            Tired of bash, zsh, fish? Use this shell which offers minimal functionaliy.
-                            Curently supported features:
-                            <ul>
-                                <li>cd</li>
-                                <li>background tasks</li>
-                                <li>stopping a task</li>
-                                <li>start that stopped task</li>
-                                <li>fd redirecting</li>
-                                <li>output piping</li>
-                            </ul> 
-
+                            Tired of bash, zsh, fish? Use this shell which
+                            offers minimal functionaliy. Curently supported
+                            features:
                         </p>
+
+                        <ul>
+                            <li>cd</li>
+                            <li>background tasks</li>
+                            <li>stopping a task</li>
+                            <li>start that stopped task</li>
+                            <li>fd redirecting</li>
+                            <li>output piping</li>
+                        </ul>
                         <a
                             class="section-button"
                             href="https://github.com/Imn0/ish"
@@ -118,8 +144,9 @@
                 <div class="section-container">
                     <div class="section-member">
                         <p>
-                            Take yourself back to early 1990's and experience a software rendereed 3d world with colisions and shooting.
-                            Written with C/SDL2.
+                            Take yourself back to early 1990's and experience a
+                            software rendereed 3d world with colisions and
+                            shooting. Written with C/SDL2.
                         </p>
                         <a
                             class="section-button"
@@ -190,20 +217,19 @@
 
         <section class="hidden">
             <div>
-                <h1>Break-Out</h1>
+                <h1>2048</h1>
                 <div class="section-container">
                     <div class="section-member">
                         <p>
-                            Recreation of the classic game written with C/SDL2.
+                            Play a relaxing game of 2048 with cosy animations
+                            and responsive design.
                         </p>
-                        <a
-                            class="section-button"
-                            href="https://github.com/Imn0/Brick-Out"
-                            >Source</a
+                        <a class="section-button" href="./pages/2048/2048.html"
+                            >Play it!</a
                         >
                     </div>
                     <div class="section-member image-container">
-                        <img src="./assets/showcases/break-out.png" alt="" />
+                        <img src="./assets/showcases/2048.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -218,8 +244,9 @@
                 <div class="section-container">
                     <div class="section-member">
                         <p>
-                            Ever forgot to redirect fd of a process and stopping it is not feasible?
-                            Use this utility to redirect fd WHILE process is running.
+                            Ever forgot to redirect fd of a process and stopping
+                            it is not feasible? Use this utility to redirect fd
+                            WHILE process is running.
                         </p>
                         <a
                             class="section-button"
@@ -304,7 +331,6 @@
                 );
         }
         includeHTML("./assets/spacers/spacer1.html");
-
         setTimeout(() => {
             for (const i of [1, 2, 3, 5, 7, 9]) {
                 const dur = 6000 - i * 500 > 3000 ? 6500 - i * 500 : 3000;

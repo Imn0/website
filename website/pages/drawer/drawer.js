@@ -1,28 +1,29 @@
-let selectGridBtn = document.getElementById('create-grid-btn');
-let clearGridBtn = document.getElementById('clear-grid-btn'); 
-let eraseGridBtn = document.getElementById('erase-btn'); let erase = false;
-let paintGridBtn = document.getElementById('paint-btn'); let paint = false;
-let colorSelect = document.getElementById('color-input');
-let board = document.getElementById('board');
+let selectGridBtn = document.getElementById("create-grid-btn");
+let clearGridBtn = document.getElementById("clear-grid-btn");
+let eraseGridBtn = document.getElementById("erase-btn");
+let erase = false;
+let paintGridBtn = document.getElementById("paint-btn");
+let paint = false;
+let colorSelect = document.getElementById("color-input");
+let board = document.getElementById("board");
 
-let height = document.getElementById('height-range');
-let heightValue = document.getElementById('height-value');
-let width = document.getElementById('width-range');
-let widthValue = document.getElementById('width-value');
+let height = document.getElementById("height-range");
+let heightValue = document.getElementById("height-value");
+let width = document.getElementById("width-range");
+let widthValue = document.getElementById("width-value");
 
 let e = {
     pc: {
-        up: 'mouseup',
-        down: 'mousedown',
-        move: 'mousemove'
+        up: "mouseup",
+        down: "mousedown",
+        move: "mousemove",
     },
     mobile: {
-        up: 'touchend',
-        down: 'touchstart',
-        move: 'touchmove'
-    }
+        up: "touchend",
+        down: "touchstart",
+        move: "touchmove",
+    },
 };
-
 
 let deviceType = "pc";
 
@@ -30,19 +31,18 @@ function testType() {
     try {
         document.createEvent("TouchEvent");
         deviceType = "mobile";
-    } catch (e) {   }
+    } catch (e) {}
 }
-
 
 testType();
 
-selectGridBtn.addEventListener('click', () => {
+selectGridBtn.addEventListener("click", () => {
     board.innerHTML = "";
     let count = 0;
     for (let i = 0; i < height.value; i++) {
         let div = document.createElement("div");
         div.classList.add("grid-row");
-        
+
         for (let j = 0; j < width.value; j++) {
             count++;
             let cell = document.createElement("div");
@@ -52,7 +52,7 @@ selectGridBtn.addEventListener('click', () => {
                 paint = true;
                 if (erase) {
                     cell.style.backgroundColor = "transparent";
-                } else {  
+                } else {
                     cell.style.backgroundColor = colorSelect.value;
                 }
             });
@@ -60,12 +60,14 @@ selectGridBtn.addEventListener('click', () => {
             cell.addEventListener(e[deviceType].move, (ev) => {
                 let elementId = document.elementFromPoint(
                     deviceType == "pc" ? ev.clientX : ev.touches[0].clientX,
-                    deviceType == "pc" ? ev.clientY : ev.touches[0].clientY,
+                    deviceType == "pc" ? ev.clientY : ev.touches[0].clientY
                 ).id;
                 paintNeighbor(elementId);
             });
 
-            cell.addEventListener(e[deviceType].up, () => { paint = false; });
+            cell.addEventListener(e[deviceType].up, () => {
+                paint = false;
+            });
 
             div.appendChild(cell);
         }
@@ -73,30 +75,29 @@ selectGridBtn.addEventListener('click', () => {
     }
 });
 
-
-function paintNeighbor(elementId){
+function paintNeighbor(elementId) {
     let gridColumns = document.querySelectorAll(".grid-cell");
     gridColumns.forEach((element) => {
         if (elementId == element.id) {
             if (paint && !erase) {
                 element.style.backgroundColor = colorSelect.value;
-            } else if(paint && erase){
+            } else if (paint && erase) {
                 element.style.backgroundColor = "transparent";
             }
         }
     });
 }
 
-eraseGridBtn.addEventListener('click', () => {
+eraseGridBtn.addEventListener("click", () => {
     erase = true;
 });
 
-clearGridBtn.addEventListener('click', () => {
+clearGridBtn.addEventListener("click", () => {
     board.innerHTML = "";
     selectGridBtn.click();
 });
 
-paintGridBtn.addEventListener('click', () => {
+paintGridBtn.addEventListener("click", () => {
     erase = false;
     paint = false;
 });
@@ -108,7 +109,7 @@ width.addEventListener("input", () => {
 height.addEventListener("input", () => {
     heightValue.innerHTML = height.value;
 });
-    
+
 window.onload = () => {
     height.value = 35;
     width.value = 35;

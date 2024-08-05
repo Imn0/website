@@ -1,15 +1,15 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: monospace;
 }
 
-body{
+body {
     background-color: lightblue;
 }
 
-.wrapper{
+.wrapper {
     background-color: #fff;
     width: 80vmin;
     position: absolute;
@@ -20,7 +20,7 @@ body{
     border-radius: 8px;
 }
 
-button{
+button {
     padding: 10px 10px;
     width: 120px;
     height: 40px;
@@ -31,8 +31,7 @@ button{
     cursor: pointer;
 }
 
-
-input[type="color"]{
+input[type="color"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -43,35 +42,31 @@ input[type="color"]{
     border-radius: 8px;
     border: none;
     cursor: pointer;
-} 
+}
 
-
-input[type="color"]::-webkit-color-swatch{
+input[type="color"]::-webkit-color-swatch {
     border-radius: 8px;
     width: 120px;
     height: 38px;
 }
 
-input[type="color"]::-moz-color-swatch{
+input[type="color"]::-moz-color-swatch {
     border-radius: 8px;
     width: 120px;
     height: 38px;
 }
 
-.grid-cell{
+.grid-cell {
     border: 1px solid #000;
     height: 1em;
     width: 1em;
 }
 
-
-.grid-row{
+.grid-row {
     display: flex;
     justify-content: center;
-    
-    
 }
-.opt-wrapper{
+.opt-wrapper {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -79,9 +74,8 @@ input[type="color"]::-moz-color-swatch{
 }
 
 /* for phones */
-@media only screen and (max-width: 768px){
-
-    .grid-cell{
+@media only screen and (max-width: 768px) {
+    .grid-cell {
         height: 0.8em;
         width: 0.8em;
     }
@@ -92,5 +86,4 @@ input[type="color"]::-moz-color-swatch{
         gap: 10px; /* Adjust the gap as needed */
         margin: 10px;
     }
-
 }

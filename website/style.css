@@ -79,8 +79,7 @@ body {
     background-image: url("./assets/spacers/spacer10.svg");
 }
 
-
-p, ul, li {
+p {
     font-size: 2rem;
 }
 
@@ -247,7 +246,6 @@ section {
         font-size: 0.7em;
     }
 
-
     section > div {
         max-width: 90vw;
     }
@@ -283,4 +281,13 @@ footer {
 footer a {
     color: #fff;
     font-size: 1em;
+}
+ul {
+    font-size: 1.3em;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+ul li ul {
+    font-size: 1.3em;
 }
