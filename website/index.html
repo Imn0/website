@@ -178,6 +178,7 @@
             .project {
                 border: 2px solid var(--border-color);
                 margin-bottom: 1.5rem;
+                overflow: hidden;
             }
 
             .project-header {
@@ -227,18 +228,21 @@
             .project-content {
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
                 border-top: 2px solid var(--border-color);
                 opacity: 0;
                 visibility: hidden;
+                transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                           opacity 0.3s ease,
+                           visibility 0s linear 0.3s;
             }
 
             .project-content.expanded {
-                max-height: 1000px;
+                max-height: 1200px;
                 opacity: 1;
                 visibility: visible;
-                transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.3s ease 0.2s;
+                transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                           opacity 0.3s ease 0.1s,
+                           visibility 0s linear 0s;
             }
 
             .project-image {
@@ -251,6 +255,15 @@
                 align-items: center;
                 justify-content: center;
                 border-bottom: 2px solid var(--border-color);
+                transform: translateY(-20px);
+                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
+                           opacity 0.4s ease 0.15s;
+                opacity: 0;
+            }
+
+            .project-content.expanded .project-image {
+                transform: translateY(0);
+                opacity: 1;
             }
 
             .project-image img {
@@ -259,7 +272,12 @@
                 max-width: 90%;
                 max-height: 90%;
                 object-fit: contain;
-                transition: transform 0.3s ease;
+                transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transform: scale(0.95);
+            }
+
+            .project-content.expanded .project-image img {
+                transform: scale(1);
             }
 
             .project-image::before {
@@ -276,29 +294,53 @@
                 filter: blur(30px) saturate(1.5);
                 transform: scale(1.1);
                 z-index: 1;
+                opacity: 0;
+                transition: opacity 0.6s ease 0.2s;
+            }
+
+            .project-content.expanded .project-image::before {
                 opacity: 0.5;
-                transition: opacity 0.3s ease;
             }
 
             .project-image:hover::before {
-                opacity: 0.7;
+                opacity: 0.7 !important;
             }
 
             .project-image:hover img {
-                transform: scale(1.02);
+                transform: scale(1.02) !important;
             }
+
             .project-details {
                 padding: 1.5rem;
                 border-bottom: 2px solid var(--border-color);
+                transform: translateY(20px);
+                opacity: 0;
+                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
+                           opacity 0.4s ease 0.25s;
+            }
+
+            .project-content.expanded .project-details {
+                transform: translateY(0);
+                opacity: 1;
             }
 
             .project-details ul {
                 padding-left: 1.5rem;
             }
+
             .project-links {
                 padding: 1rem 1.5rem;
                 display: flex;
                 gap: 1rem;
+                transform: translateY(20px);
+                opacity: 0;
+                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
+                           opacity 0.4s ease 0.35s;
+            }
+
+            .project-content.expanded .project-links {
+                transform: translateY(0);
+                opacity: 1;
             }
 
             .project-links a {
@@ -306,11 +348,13 @@
                 text-decoration: none;
                 padding: 0.5rem 1rem;
                 border: 2px solid var(--border-color);
+                transition: all 0.3s ease;
             }
 
             .project-links a:hover {
                 background: var(--border-color);
                 color: var(--bg-color);
+                transform: translateY(-2px);
             }
 
             .contact {
@@ -367,15 +411,21 @@
 
                 .nav-links {
                     position: fixed;
-                    top: 60px;
+                    top: 64px;
                     right: -100%;
-                    height: calc(100vh - 60px);
-                    width: 250px;
-                    background: var(--bg-color);
+                    height: calc(100vh - 64px);
+                    width: 280px;
+                    background: rgba(254, 254, 254, 0.95);
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
                     flex-direction: column;
                     padding: 2rem;
-                    border-left: 2px solid var(--border-color);
+                    border-left: 1px solid var(--border-light);
                     transition: right 0.3s ease;
+                }
+
+                [data-theme="dark"] .nav-links {
+                    background: rgba(10, 10, 10, 0.95);
                 }
 
                 .nav-links.active {
@@ -476,7 +526,7 @@
                             />
                         </div>
                         <div class="project-details">
-                            <p></p>
+                            <p>A smart air conditioning controller that allows you to manage your AC unit remotely through a web interface or integrate it with home automation systems like Home Assistant.</p>
                         </div>
                         <div class="project-links">
                             <a
@@ -509,7 +559,7 @@
                             />
                         </div>
                         <div class="project-details">
-                            <p></p>
+                            <p>A modern take on the classic asteroids arcade game featuring cooperative multiplayer gameplay, smooth SDL2 graphics, and network support for playing with friends.</p>
                         </div>
                         <div class="project-links">
                             <a
@@ -546,7 +596,7 @@
                             />
                         </div>
                         <div class="project-details">
-                            <p></p>
+                            <p>A demonstration of classic raycasting techniques used in early 3D games like Wolfenstein 3D. This project showcases the mathematical principles behind creating 3D-like environments using 2D rendering techniques.</p>
                         </div>
                         <div class="project-links">
                             <a
@@ -572,7 +622,7 @@
                         <div class="project-image">
                             <img
                                 src="assets/showcases/ish.png"
-                                alt="raycaster"
+                                alt="shell"
                             />
                         </div>
                         <div class="project-details">
