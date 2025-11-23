@@ -7,6 +7,7 @@
         <link rel="icon" href="./favicon.ico" type="image/x-icon" />
         <style>
             @import url(assets/fonts/IosevkaCustom.css);
+
             :root {
                 --bg-color: #ffffff;
                 --text-color: #2d2d2d;
@@ -66,6 +67,7 @@
                 padding: 1rem 0;
                 z-index: 1000;
             }
+
             #theme-toggle {
                 background: none;
                 border: none;
@@ -97,6 +99,7 @@
                 0% {
                     transform: rotate(0deg);
                 }
+
                 100% {
                     transform: rotate(360deg);
                 }
@@ -106,6 +109,7 @@
                 0% {
                     transform: rotate(360deg);
                 }
+
                 100% {
                     transform: rotate(0deg);
                 }
@@ -116,6 +120,7 @@
                 align-items: center;
                 gap: 1.5rem;
             }
+
             .nav-content {
                 max-width: 800px;
                 margin: 0 auto;
@@ -232,8 +237,7 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                           opacity 0.3s ease,
-                           visibility 0s linear 0.3s;
+                    opacity 0.3s ease, visibility 0s linear 0.3s;
             }
 
             .project-content.expanded {
@@ -241,8 +245,7 @@
                 opacity: 1;
                 visibility: visible;
                 transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                           opacity 0.3s ease 0.1s,
-                           visibility 0s linear 0s;
+                    opacity 0.3s ease 0.1s, visibility 0s linear 0s;
             }
 
             .project-image {
@@ -256,8 +259,9 @@
                 justify-content: center;
                 border-bottom: 2px solid var(--border-color);
                 transform: translateY(-20px);
-                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s,
-                           opacity 0.4s ease 0.15s;
+                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                        0.1s,
+                    opacity 0.4s ease 0.15s;
                 opacity: 0;
             }
 
@@ -315,8 +319,9 @@
                 border-bottom: 2px solid var(--border-color);
                 transform: translateY(20px);
                 opacity: 0;
-                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s,
-                           opacity 0.4s ease 0.25s;
+                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                        0.2s,
+                    opacity 0.4s ease 0.25s;
             }
 
             .project-content.expanded .project-details {
@@ -334,8 +339,9 @@
                 gap: 1rem;
                 transform: translateY(20px);
                 opacity: 0;
-                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s,
-                           opacity 0.4s ease 0.35s;
+                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+                        0.3s,
+                    opacity 0.4s ease 0.35s;
             }
 
             .project-content.expanded .project-links {
@@ -405,6 +411,7 @@
                 .container {
                     padding: 1rem;
                 }
+
                 .mobile-menu-btn {
                     display: block;
                 }
@@ -442,6 +449,7 @@
                 #theme-toggle {
                     margin-top: 1rem;
                 }
+
                 .nav-content {
                     padding: 0 1rem;
                 }
@@ -465,6 +473,7 @@
             }
         </style>
     </head>
+
     <body>
         <nav>
             <div class="nav-content">
@@ -509,6 +518,58 @@
                 <div class="project">
                     <div class="project-header">
                         <div class="project-title">
+                            <h3>Timber</h3>
+                            <div class="project-tech">C</div>
+                            <p class="project-summary">A C23 logging library</p>
+                        </div>
+                        <div class="expand-btn">+</div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-image">
+                            <img
+                                src="assets/showcases/timber.png"
+                                alt="timber"
+                            />
+                        </div>
+                        <div class="project-details">
+                            <p>
+                                Easy to use logging library with C23 feature
+                                with easy to understand logging format. C++ and
+                                python bindings available.
+                            </p>
+                        </div>
+                        <div class="project-links">
+                            <a
+                                href="https://github.com/Imn0/timber"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >View Source</a
+                            >
+                            <a
+                                href="https://timber.imno.ovh"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >View Docs</a
+                            >
+                            <a
+                                href="https://github.com/Imn0/timber-cpp"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >C++</a
+                            >
+                            <a
+                                href="https://github.com/Imn0/timber-py"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Python</a
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <div class="project-title">
                             <h3>A/C controler</h3>
                             <div class="project-tech">C • RaspberrPi Pico</div>
                             <p class="project-summary">
@@ -526,7 +587,12 @@
                             />
                         </div>
                         <div class="project-details">
-                            <p>A smart air conditioning controller that allows you to manage your AC unit remotely through a web interface or integrate it with home automation systems like Home Assistant.</p>
+                            <p>
+                                A smart air conditioning controller that allows
+                                you to manage your AC unit remotely through a
+                                web interface or integrate it with home
+                                automation systems like Home Assistant.
+                            </p>
                         </div>
                         <div class="project-links">
                             <a
@@ -559,7 +625,12 @@
                             />
                         </div>
                         <div class="project-details">
-                            <p>A modern take on the classic asteroids arcade game featuring cooperative multiplayer gameplay, smooth SDL2 graphics, and network support for playing with friends.</p>
+                            <p>
+                                A modern take on the classic asteroids arcade
+                                game featuring cooperative multiplayer gameplay,
+                                smooth SDL2 graphics, and network support for
+                                playing with friends.
+                            </p>
                         </div>
                         <div class="project-links">
                             <a
@@ -596,7 +667,13 @@
                             />
                         </div>
                         <div class="project-details">
-                            <p>A demonstration of classic raycasting techniques used in early 3D games like Wolfenstein 3D. This project showcases the mathematical principles behind creating 3D-like environments using 2D rendering techniques.</p>
+                            <p>
+                                A demonstration of classic raycasting techniques
+                                used in early 3D games like Wolfenstein 3D. This
+                                project showcases the mathematical principles
+                                behind creating 3D-like environments using 2D
+                                rendering techniques.
+                            </p>
                         </div>
                         <div class="project-links">
                             <a
@@ -620,10 +697,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-image">
-                            <img
-                                src="assets/showcases/ish.png"
-                                alt="shell"
-                            />
+                            <img src="assets/showcases/ish.png" alt="shell" />
                         </div>
                         <div class="project-details">
                             <p>
