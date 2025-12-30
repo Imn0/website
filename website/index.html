@@ -3,834 +3,211 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Krzysztof Andrzejewski| Software Engineer</title>
-        <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+        <title>imno</title>
         <style>
             @import url(assets/fonts/IosevkaCustom.css);
-
             :root {
-                --bg-color: #ffffff;
-                --text-color: #2d2d2d;
-                --secondary-color: #666666;
-                --nav-bg: #f5f5f5;
-                --card-bg: #ffffff;
-                --border-color: #000000;
-
-                transition: background-color 0.3s ease, color 0.3s ease;
+                --bg: #fbf1c7;
+                --text: #4f3829;
+                --text-dim: #654735;
+                --link: #45707a;
+                --red: #c14a4a;
+                --dot: rgba(0, 0, 0, 0.08);
             }
 
-            body,
-            a,
-            button,
-            .project-content {
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
-
-            [data-theme="dark"] {
-                --bg-color: #1a1a1a;
-                --text-color: #ffffff;
-                --nav-bg: #2d2d2d;
-                --card-bg: #2d2d2d;
-                --border-color: #404040;
-            }
-
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            a {
-                color: var(--text-color);
-                text-decoration: underline;
-                transition: all 0.3s ease;
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #282828;
+                    --text: #ddc7a1;
+                    --text-dim: #d4be98;
+                    --link: #7daea3;
+                    --red: #ea6962;
+                    --dot: rgba(255, 255, 255, 0.08);
+                }
             }
 
             body {
-                font-family: "Iosevka", monospace;
-                line-height: 1.6;
-                color: var(--text-color);
-                background: var(--bg-color);
-                border-left: 2px solid var(--border-color);
-                border-right: 2px solid var(--border-color);
-                min-height: 100vh;
-                padding-top: 60px;
+                font-family: "Iosevka Custom Web";
+                margin: 2em;
+                background-color: var(--bg);
+                color: var(--text);
+                background-image: radial-gradient(
+                    var(--dot) 1px,
+                    transparent 1px
+                );
+                background-size: 0.4em 0.4em;
             }
 
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background: var(--bg-color);
-                border-bottom: 2px solid var(--border-color);
-                padding: 1rem 0;
-                z-index: 1000;
+            a {
+                color: var(--link);
             }
 
-            #theme-toggle {
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 0.5rem;
-                font-size: 1.2rem;
-                border-radius: 50%;
-                transition: transform 0.5s ease;
-                outline: none;
+            a:hover {
+                color: var(--red);
+                transition: 0.2s;
             }
 
-            #theme-toggle:hover {
-                transform: scale(1.1) rotate(15deg);
+            #content {
+                float: left;
+                max-width: 30em;
+                margin-right: 2em;
             }
-
-            #theme-toggle:active {
-                transform: scale(0.9);
+            #contact {
+                float: left;
+                max-width: 10em;
             }
-
-            [data-theme="dark"] #theme-toggle {
-                animation: switchToDark 0.5s ease forwards;
-            }
-
-            [data-theme="light"] #theme-toggle {
-                animation: switchToLight 0.5s ease forwards;
-            }
-
-            @keyframes switchToDark {
-                0% {
-                    transform: rotate(0deg);
-                }
-
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-
-            @keyframes switchToLight {
-                0% {
-                    transform: rotate(360deg);
-                }
-
-                100% {
-                    transform: rotate(0deg);
-                }
-            }
-
-            .nav-links {
-                display: flex;
-                align-items: center;
-                gap: 1.5rem;
-            }
-
-            .nav-content {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 0 2rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .logo {
-                border: 2px solid var(--border-color);
-                padding: 0.25rem 0.5rem;
-            }
-
-            .nav-links a {
-                margin-left: 2rem;
-                color: var(--text-color);
-                text-decoration: none;
-                padding: 0.25rem 0.5rem;
-            }
-
-            .nav-links a:hover {
-                background: var(--border-color);
-                color: var(--bg-color);
-            }
-
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 2rem;
-            }
-
-            header {
-                margin-bottom: 4rem;
-                border: 2px solid var(--border-color);
-                padding: 2rem;
-            }
-
             h1 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
+                font-weight: normal;
+                margin-bottom: 0;
+            }
+            h3 {
+                margin-bottom: 0;
             }
 
-            h2 {
-                font-size: 1.75rem;
-                margin: 0 0 1rem 0;
-                border-bottom: 2px solid var(--border-color);
-                padding-bottom: 0.5rem;
-            }
-
-            .role {
-                margin-bottom: 1rem;
-
-                color: var(--secondary-color);
-                font-size: 1.25rem;
-                border-left: 2px solid var(--border-color);
-                padding-left: 1rem;
-            }
-
-            .project {
-                border: 2px solid var(--border-color);
-                margin-bottom: 1.5rem;
-                overflow: hidden;
-            }
-
-            .project-header {
-                padding: 1.5rem;
-                cursor: pointer;
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-
-            .project-title h3 {
-                margin: 0;
-                font-size: 1.25rem;
-            }
-
-            .project-tech {
-                color: var(--secondary-color);
-                font-size: 0.9rem;
-                margin: 0.5rem 0;
-                border-left: 2px solid var(--border-color);
-                padding-left: 1rem;
-            }
-
-            .project-summary {
-                margin: 0.5rem 0;
-            }
-
-            .expand-btn {
-                border: 2px solid var(--border-color);
-                width: 30px;
-                height: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                flex-shrink: 0;
-                margin-left: 1rem;
-                user-select: none;
-                transition: all 0.2s ease;
-            }
-
-            .expand-btn:hover {
-                background: var(--border-color);
-                color: var(--bg-color);
-            }
-
-            .project-content {
-                max-height: 0;
-                overflow: hidden;
-                border-top: 2px solid var(--border-color);
-                opacity: 0;
-                visibility: hidden;
-                transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    opacity 0.3s ease, visibility 0s linear 0.3s;
-            }
-
-            .project-content.expanded {
-                max-height: 1200px;
-                opacity: 1;
-                visibility: visible;
-                transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                    opacity 0.3s ease 0.1s, visibility 0s linear 0s;
+            h3 a {
+                color: var(--text);
             }
 
             .project-image {
-                position: relative;
-                width: 100%;
-                height: 300px;
-                overflow: hidden;
-                background-color: var(--bg-color);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-bottom: 2px solid var(--border-color);
-                transform: translateY(-20px);
-                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-                        0.1s,
-                    opacity 0.4s ease 0.15s;
-                opacity: 0;
+                width: 30em;
+                height: auto;
             }
-
-            .project-content.expanded .project-image {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
             .project-image img {
-                position: relative;
-                z-index: 2;
-                max-width: 90%;
-                max-height: 90%;
+                max-width: 95%;
+                max-height: 95%;
                 object-fit: contain;
-                transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                transform: scale(0.95);
             }
-
-            .project-content.expanded .project-image img {
-                transform: scale(1);
-            }
-
-            .project-image::before {
-                content: "";
-                position: absolute;
-                top: -20px;
-                left: -20px;
-                right: -20px;
-                bottom: -20px;
-                background-image: var(--blurred-image);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                filter: blur(30px) saturate(1.5);
-                transform: scale(1.1);
-                z-index: 1;
-                opacity: 0;
-                transition: opacity 0.6s ease 0.2s;
-            }
-
-            .project-content.expanded .project-image::before {
-                opacity: 0.5;
-            }
-
-            .project-image:hover::before {
-                opacity: 0.7 !important;
-            }
-
-            .project-image:hover img {
-                transform: scale(1.02) !important;
-            }
-
-            .project-details {
-                padding: 1.5rem;
-                border-bottom: 2px solid var(--border-color);
-                transform: translateY(20px);
-                opacity: 0;
-                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-                        0.2s,
-                    opacity 0.4s ease 0.25s;
-            }
-
-            .project-content.expanded .project-details {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .project-details ul {
-                padding-left: 1.5rem;
-            }
-
-            .project-links {
-                padding: 1rem 1.5rem;
-                display: flex;
-                gap: 1rem;
-                transform: translateY(20px);
-                opacity: 0;
-                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-                        0.3s,
-                    opacity 0.4s ease 0.35s;
-            }
-
-            .project-content.expanded .project-links {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .project-links a {
-                color: var(--text-color);
-                text-decoration: none;
-                padding: 0.5rem 1rem;
-                border: 2px solid var(--border-color);
-                transition: all 0.3s ease;
-            }
-
-            .project-links a:hover {
-                background: var(--border-color);
-                color: var(--bg-color);
-                transform: translateY(-2px);
-            }
-
-            .contact {
-                margin-top: 4rem;
-                border: 2px solid var(--border-color);
-                padding: 2rem;
-            }
-
-            .contact-links {
-                display: flex;
-                gap: 1rem;
-            }
-
-            .contact-links a {
-                color: var(--text-color);
-                text-decoration: none;
-                padding: 0.5rem 1rem;
-                border: 2px solid var(--border-color);
-            }
-
-            .contact-links a:hover {
-                background: var(--border-color);
-                color: var(--bg-color);
-            }
-
-            .mobile-menu-btn {
-                display: none;
-                background: none;
-                border: 2px solid var(--border-color);
-                padding: 0.5rem;
-                cursor: pointer;
-                color: var(--text-color);
-            }
-
-            @media (max-width: 600px) {
-                body {
-                    border: none;
-                }
-
-                .project-image {
-                    height: 200px;
-                }
-
-                .project-image::before {
-                    filter: blur(20px) saturate(1.2);
-                }
-
-                .container {
-                    padding: 1rem;
-                }
-
-                .mobile-menu-btn {
-                    display: block;
-                }
-
-                .nav-links {
-                    position: fixed;
-                    top: 64px;
-                    right: -100%;
-                    height: calc(100vh - 64px);
-                    width: 280px;
-                    background: rgba(254, 254, 254, 0.95);
-                    backdrop-filter: blur(12px);
-                    -webkit-backdrop-filter: blur(12px);
-                    flex-direction: column;
-                    padding: 2rem;
-                    border-left: 1px solid var(--border-light);
-                    transition: right 0.3s ease;
-                }
-
-                [data-theme="dark"] .nav-links {
-                    background: rgba(10, 10, 10, 0.95);
-                }
-
-                .nav-links.active {
-                    right: 0;
-                }
-
-                .nav-links a {
-                    margin: 0;
-                    padding: 1rem;
-                    width: 100%;
-                    text-align: center;
-                }
-
-                #theme-toggle {
-                    margin-top: 1rem;
-                }
-
-                .nav-content {
-                    padding: 0 1rem;
-                }
-
-                .project-header {
-                    flex-direction: column;
-                }
-
-                .expand-btn {
-                    margin: 1rem 0 0 0;
-                    align-self: flex-end;
-                }
-
-                .project-image {
-                    height: 200px;
-                }
-
-                .contact-links {
-                    flex-direction: column;
-                }
-
-                .project-links {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 1rem;
-                }
-
-                .project-links a {
-                    width: 100%;
-                    text-align: center;
-                }
+            .project-tech {
+                color: var(--text-dim);
+                font-size: 0.9em;
+                padding-left: 0.3em;
+                border-left: 1.23px solid var(--text-dim);
             }
         </style>
     </head>
-
     <body>
-        <nav>
-            <div class="nav-content">
-                <div class="logo">imno</div>
-                <button class="mobile-menu-btn logo" aria-label="Toggle menu">
-                    +
-                </button>
-
-                <div class="nav-links">
-                    <a class="logo" href="#about">About</a>
-                    <a class="logo" href="#projects">Projects</a>
-                    <a class="logo" href="#contact">Contact</a>
-                    <button
-                        class="expand-btn"
-                        id="theme-toggle"
-                        aria-label="Toggle theme"
-                    >
-                        🌙
-                    </button>
-                </div>
+        <h1>imno</h1>
+        <div id="content">
+            <p>
+                I type stuff into my puter. During last few years I also wrote
+                several programs/projects which you can explore below.
+            </p>
+            <h3 id="timber">
+                <a href="#timber"># timber</a>
+            </h3>
+            <span class="project-tech">C</span>
+            <p>A modern C logging library</p>
+            <div class="project-image" style="height: 100px">
+                <img src="assets/showcases/timber.png" alt="shell" />
             </div>
-        </nav>
-
-        <div class="container">
-            <header id="about">
-                <h1>Krzysztof Andrzejewski</h1>
-                <p class="role">Software Engineer</p>
-                <p>
-                    My name is Chris, I am a third year computer science stutent
-                    at Wrocław University of Science and Technology. I am also
-                    an active member of
-                    <a href="https://akl.pwr.edu.pl/">Academic Flight Club</a>
-                    where I write software powering UAVs and drones including
-                    A/I and computer vision. During last few years I also wrote
-                    several programs/projects which you can explore below.
-                </p>
-            </header>
-
-            <section id="projects" class="contact">
-                <h2>Projects</h2>
-
-                <div class="project">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>Timber</h3>
-                            <div class="project-tech">C</div>
-                            <p class="project-summary">A C23 logging library</p>
-                        </div>
-                        <div class="expand-btn">+</div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img
-                                src="assets/showcases/timber.png"
-                                alt="timber"
-                            />
-                        </div>
-                        <div class="project-details">
-                            <p>
-                                Easy to use logging library with C23 feature
-                                with easy to understand logging format. C++ and
-                                python bindings available.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a
-                                href="https://github.com/Imn0/timber"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >View Source</a
-                            >
-                            <a
-                                href="https://timber.imno.ovh"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >View Docs</a
-                            >
-                            <a
-                                href="https://github.com/Imn0/timber-cpp"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >C++</a
-                            >
-                            <a
-                                href="https://github.com/Imn0/timber-py"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Python</a
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>A/C controler</h3>
-                            <div class="project-tech">C • RaspberrPi Pico</div>
-                            <p class="project-summary">
-                                Control A/C from your web browser or using home
-                                assistant.
-                            </p>
-                        </div>
-                        <div class="expand-btn">+</div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img
-                                src="assets/showcases/ac-control.png"
-                                alt="A/C controler"
-                            />
-                        </div>
-                        <div class="project-details">
-                            <p>
-                                A smart air conditioning controller that allows
-                                you to manage your AC unit remotely through a
-                                web interface or integrate it with home
-                                automation systems like Home Assistant.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a
-                                href="https://github.com/Imn0/rpi-pico-ac-control"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >View Source</a
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>Asteroids</h3>
-                            <div class="project-tech">C • SDL2</div>
-                            <p class="project-summary">
-                                Cooperative multiplayer asteroids game with both
-                                single-player and network co-op.
-                            </p>
-                        </div>
-                        <div class="expand-btn">+</div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img
-                                src="assets/showcases/asteroids.png"
-                                alt="asteroids"
-                            />
-                        </div>
-                        <div class="project-details">
-                            <p>
-                                A modern take on the classic asteroids arcade
-                                game featuring cooperative multiplayer gameplay,
-                                smooth SDL2 graphics, and network support for
-                                playing with friends.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a
-                                href="https://github.com/Imn0/asteroids"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >View Source</a
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>Raycaster</h3>
-                            <div class="project-tech">C • SDL2</div>
-                            <p class="project-summary">
-                                A classic 3d-like
-                                <a
-                                    href="https://en.wikipedia.org/wiki/Ray_casting"
-                                    >raycaster</a
-                                >
-                                renderer demo.
-                            </p>
-                        </div>
-                        <div class="expand-btn">+</div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img
-                                src="assets/showcases/3d-demo.png"
-                                alt="raycaster"
-                            />
-                        </div>
-                        <div class="project-details">
-                            <p>
-                                A demonstration of classic raycasting techniques
-                                used in early 3D games like Wolfenstein 3D. This
-                                project showcases the mathematical principles
-                                behind creating 3D-like environments using 2D
-                                rendering techniques.
-                            </p>
-                        </div>
-                        <div class="project-links">
-                            <a
-                                href="https://github.com/Imn0/3d-demo"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >View Source</a
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-header">
-                        <div class="project-title">
-                            <h3>ish</h3>
-                            <div class="project-tech">Rust</div>
-                            <p class="project-summary">A basic linux shell.</p>
-                        </div>
-                        <div class="expand-btn">+</div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img src="assets/showcases/ish.png" alt="shell" />
-                        </div>
-                        <div class="project-details">
-                            <p>
-                                Tired of bash, zsh, fish? Use this shell which
-                                offers minimal functionaliy. Curently supported
-                                features:
-                            </p>
-                            <ul>
-                                <li>cd</li>
-                                <li>background tasks</li>
-                                <li>stopping a task</li>
-                                <li>start that stopped task</li>
-                                <li>fd redirecting</li>
-                                <li>output piping</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a
-                                href="https://github.com/Imn0/ish"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >View Source</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact" class="contact">
-                <h2>Contact</h2>
-                <div class="contact-links">
-                    <a href="mailto:krzysztof.jan.andrzejewski@gmail.com"
-                        >Email</a
-                    >
-                    <a href="https://github.com/Imn0">GitHub</a>
-                    <a
-                        href="https://www.linkedin.com/in/krzysztof-andrzejewski-8748252b3"
-                        >LinkedIn</a
-                    >
-                </div>
-            </section>
+            <p>
+                Easy to use logging library with C23 feature with easy to
+                understand logging format. C++ and python bindings available.
+            </p>
+            <a
+                href="https://github.com/Imn0/timber"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Source</a
+            >
+            <a
+                href="https://timber.imno.ovh"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Docs</a
+            >
+            <a
+                href="https://github.com/Imn0/timber-cpp"
+                target="_blank"
+                rel="noopener noreferrer"
+                >C++ bindings</a
+            >
+            <a
+                href="https://github.com/Imn0/timber-py"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Python bindings</a
+            >
+            <h3 id="ac-control">
+                <a href="#ac-control"># A/C controler</a>
+            </h3>
+            <span class="project-tech">C • RaspberrPi Pico</span>
+            <p>Control A/C from your web browser or using home assistant.</p>
+            <div class="project-image">
+                <img src="assets/showcases/ac-control.png" alt="shell" />
+            </div>
+            <p>
+                A smart air conditioning controller that allows you to manage
+                your AC unit remotely through a web interface or integrate it
+                with home automation systems like Home Assistant.
+            </p>
+            <a
+                href="https://github.com/Imn0/rpi-pico-ac-control"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Source</a
+            >
+            <h3 id="asteroids">
+                <a href="#asteroids"># Asteroids</a>
+            </h3>
+            <span class="project-tech">C • SDL</span>
+            <p>
+                Cooperative multiplayer asteroids game with both single-player
+                and network co-op.
+            </p>
+            <div class="project-image">
+                <img src="assets/showcases/asteroids.png" alt="shell" />
+            </div>
+            <p>
+                A modern take on the classic asteroids arcade game featuring
+                cooperative multiplayer gameplay, smooth SDL2 graphics, and
+                network support for playing with friends.
+            </p>
+            <a
+                href="https://github.com/Imn0/asteroids"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Source</a
+            >
+            <h3 id="ish">
+                <a href="#ish"># ish</a>
+            </h3>
+            <span class="project-tech">Rust</span>
+            <p>A basic linux shell.</p>
+            <div class="project-image">
+                <img src="assets/showcases/ish.png" alt="shell" />
+            </div>
+            <p>
+                Tired of bash, zsh, fish? Use this shell which offers minimal
+                functionaliy. Curently supported features:
+            </p>
+            <ul style="margin-top: 0px">
+                <li>cd</li>
+                <li>background tasks</li>
+                <li>stopping a task</li>
+                <li>start that stopped task</li>
+                <li>fd redirecting</li>
+                <li>output piping</li>
+            </ul>
+            <a
+                href="https://github.com/Imn0/ish"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Source</a
+            >
         </div>
-
-        <script>
-            const themeToggle = document.getElementById("theme-toggle");
-            const prefersDarkScheme = window.matchMedia(
-                "(prefers-color-scheme: dark)"
-            );
-
-            function setTheme(theme) {
-                document.documentElement.setAttribute("data-theme", theme);
-                localStorage.setItem("theme", theme);
-                themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-            }
-
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                setTheme(savedTheme);
-            } else {
-                setTheme(prefersDarkScheme.matches ? "dark" : "light");
-            }
-
-            themeToggle.addEventListener("click", () => {
-                const currentTheme =
-                    document.documentElement.getAttribute("data-theme");
-                setTheme(currentTheme === "dark" ? "light" : "dark");
-            });
-
-            document.querySelectorAll(".project-image").forEach((container) => {
-                const img = container.querySelector("img");
-                if (img) {
-                    container.style.setProperty(
-                        "--blurred-image",
-                        `url("${img.src}")`
-                    );
-                }
-            });
-            document.querySelectorAll(".project-header").forEach((header) => {
-                const project = header.parentElement;
-                const content = project.querySelector(".project-content");
-                const button = header.querySelector(".expand-btn");
-
-                header.addEventListener("click", () => {
-                    const isExpanded = content.classList.contains("expanded");
-
-                    content.classList.toggle("expanded");
-                    button.textContent = isExpanded ? "+" : "−";
-                });
-            });
-        </script>
-        <script>
-            const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-            const navLinks = document.querySelector(".nav-links");
-
-            mobileMenuBtn.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-                mobileMenuBtn.textContent = navLinks.classList.contains(
-                    "active"
-                )
-                    ? "−"
-                    : "+";
-            });
-
-            // close menu when clicking links
-            document.querySelectorAll(".nav-links a").forEach((link) => {
-                link.addEventListener("click", () => {
-                    navLinks.classList.remove("active");
-                    mobileMenuBtn.textContent = "+";
-                });
-            });
-
-            // close menu when clicking outside
-            document.addEventListener("click", (e) => {
-                if (
-                    !e.target.closest(".nav-links") &&
-                    !e.target.closest(".mobile-menu-btn") &&
-                    navLinks.classList.contains("active")
-                ) {
-                    navLinks.classList.remove("active");
-                    mobileMenuBtn.textContent = "+";
-                }
-            });
-        </script>
+        <div id="contact">
+            <h3>contact</h3>
+            <p>
+                <a href="mailto:krzysztof.jan.andrzejewski@gmail.com">Email</a>
+            </p>
+            <p><a href="https://github.com/Imn0">GitHub</a></p>
+            <p>
+                <a
+                    href="https://www.linkedin.com/in/krzysztof-andrzejewski-8748252b3"
+                    >LinkedIn</a
+                >
+            </p>
+        </div>
     </body>
 </html>
