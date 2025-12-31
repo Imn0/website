@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -28,7 +28,8 @@
 
             body {
                 font-family: "Iosevka Custom Web";
-                margin: 2em;
+                font-size: x-large;
+                margin-top: 2em;
                 background-color: var(--bg);
                 color: var(--text);
                 background-image: radial-gradient(
@@ -36,6 +37,9 @@
                     transparent 1px
                 );
                 background-size: 0.4em 0.4em;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                align-items: start;
             }
 
             a {
@@ -48,14 +52,17 @@
             }
 
             #content {
-                float: left;
+                grid-column: 2;
                 max-width: 30em;
-                margin-right: 2em;
             }
+
             #contact {
-                float: left;
-                max-width: 10em;
+                box-sizing: border-box;
+                grid-column: 3;
+                padding-left: 5em;
+                max-width: 1fr;
             }
+
             h1 {
                 font-weight: normal;
                 margin-bottom: 0;
@@ -69,25 +76,46 @@
             }
 
             .project-image {
-                width: 30em;
+                max-width: 30em;
                 height: auto;
+                display: flex;
+                justify-content: center;
             }
+
             .project-image img {
                 max-width: 95%;
                 max-height: 95%;
                 object-fit: contain;
             }
+
             .project-tech {
                 color: var(--text-dim);
                 font-size: 0.9em;
                 padding-left: 0.3em;
                 border-left: 1.23px solid var(--text-dim);
             }
+
+            @media (max-width: 768px) {
+                body {
+                    grid-template-columns: 1fr;
+                    row-gap: 2em;
+                }
+
+                #content {
+                    grid-column: 1;
+                    padding-bottom: 1em;
+                }
+
+                #contact {
+                    grid-column: 1;
+                    padding-left: 0;
+                }
+            }
         </style>
     </head>
     <body>
-        <h1>imno</h1>
         <div id="content">
+            <h1>imno</h1>
             <p>
                 I type stuff into my puter. During last few years I also wrote
                 several programs/projects which you can explore below.
