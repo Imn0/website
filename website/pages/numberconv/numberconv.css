@@ -1,90 +1,278 @@
+@import url(../../assets/fonts/IosevkaCustom.css);
+
+:root {
+    --bg: #fbf1c7;
+    --text: #4f3829;
+    --text-dim: #7c5c48;
+    --link: #45707a;
+    --red: #c14a4a;
+    --card-bg: rgba(0, 0, 0, 0.03);
+    --card-border: rgba(0, 0, 0, 0.07);
+    --divider: rgba(0, 0, 0, 0.1);
+    --noise-opacity: 0.035;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #282828;
+        --text: #ddc7a1;
+        --text-dim: #b8a48a;
+        --link: #7daea3;
+        --red: #ea6962;
+        --card-bg: rgba(255, 255, 255, 0.03);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --divider: rgba(255, 255, 255, 0.1);
+        --noise-opacity: 0.06;
+    }
+}
+
 * {
-    padding: 0;
+    box-sizing: border-box;
     margin: 0;
-    font-family: monospace;
-    font-size: 3vmin;
+    padding: 0;
 }
 
 body {
-    background-color: #202731;
-    z-index: -3;
-}
-
-section {
+    font-family: "Iosevka Custom Web", monospace;
+    font-size: large;
+    line-height: 1.7;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 3em 1.2em 5em;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-input[type="text"] {
-    background: transparent;
-    border: none;
-    border-bottom: 0.1vmin solid #000;
-    outline: none;
-}
-
-.description {
-    margin-top: 1vmin;
-    margin-bottom: 3vmin;
-    font-size: 2vmin;
-    color: #333;
-    text-align: center;
-}
-.dropdown-box {
-    color: #333;
-    background: transparent;
-    border: none;
-    font-size: 2vmin;
-}
-
-.dropdown-box option {
-    color: #333;
-    background: lightgray;
-    font-size: 2vmin;
-}
-
-.wrapper {
-    /* background: #b4d9ca; */
-    border-radius: 4vmin;
-    padding: 4vmin;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 10%);
-    position: absolute;
-}
-
-.number-box {
-    text-align: center;
-    width: 32ch;
-}
-
-.blob-motion {
+body::before {
+    content: "";
     position: fixed;
-    transform: translate(-50%, -10%);
-    width: 200vmin;
-    height: 150vmin;
-    z-index: -1;
-    overflow: visible;
-}
-.wrapper > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: var(--noise-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.35' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
 }
 
-@media (max-width: 768px) {
-    .number-box {
-        font-size: 4.4vmin;
-        width: 32ch;
+#page {
+    position: relative;
+    z-index: 1;
+    width: 30em;
+    max-width: 100%;
+}
+
+.page-header {
+    margin-bottom: 2.5em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid var(--divider);
+}
+
+.page-header h1 {
+    font-weight: 300;
+    font-size: 2.4em;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.2em;
+}
+
+.back-link {
+    font-size: 0.8em;
+    color: var(--link);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--red);
+    transition: color 0.2s;
+}
+
+.back-link::before {
+    content: "← ";
+}
+
+.converter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em 1.5em;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.field label {
+    font-size: 0.72em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.field input[type="text"] {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 3px;
+    padding: 0.3em 0.5em;
+    font-family: "Iosevka Custom Web", monospace;
+    font-size: 0.85em;
+    color: var(--text);
+    outline: none;
+    width: 100%;
+    transition: border-color 0.15s;
+}
+
+.field input[type="text"]:focus {
+    border-color: var(--link);
+}
+
+select.bits-select {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    color: var(--text-dim);
+    font-family: "Iosevka Custom Web", monospace;
+    font-size: 1em;
+    padding: 0 0.2em;
+    outline: none;
+    cursor: pointer;
+}
+
+.custom-base-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+input.custom-size-input {
+    width: 2.5ch;
+    background: var(--card-bg);
+    border: none;
+    border-bottom: 1px solid var(--text-dim);
+    color: var(--text-dim);
+    font-family: "Iosevka Custom Web", monospace;
+    font-size: 1em;
+    text-align: center;
+    outline: none;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 2em 1em 4em;
     }
-    .description {
-        font-size: 3vmin;
+
+    .converter-grid {
+        grid-template-columns: 1fr;
     }
-    .dropdown-box {
-        font-size: 3vmin;
+
+    .f32-grid {
+        --f32-btn: min(0.6em, calc((100vw - 2em - 39px) / 32));
     }
-    .dropdown-box option {
-        font-size: 6vmin;
+}
+
+/* ── float32 breakdown ───────────────────────────────────────── */
+
+.float32-field {
+    grid-column: 1 / -1;
+}
+
+.f32-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 0.5em;
+    /* 32 buttons + 31 gaps(1px) + 2 group separators(~8px) must fit in available width.
+       available ≈ 100vw - 2*1.2em padding. button width = (avail - 39px) / 32        */
+    --f32-btn: min(0.6em, calc((100vw - 2.4em - 39px) / 32));
+    font-size: var(--f32-btn);
+}
+
+.f32-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.f32-exp {
+    border-left: 1px solid var(--divider);
+    border-right: 1px solid var(--divider);
+    padding: 0 2px;
+    margin: 0 1px;
+}
+
+.f32-bits {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+}
+
+.f32-bit {
+    width: 1.4em;
+    height: 1.8em;
+    border: 1px solid var(--card-border);
+    border-radius: 2px;
+    background: var(--card-bg);
+    color: var(--text-dim);
+    font-family: "Iosevka Custom Web", monospace;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+    user-select: none;
+    padding: 0;
+}
+
+.f32-bit:hover {
+    border-color: var(--text-dim);
+    color: var(--text);
+}
+
+.f32-sign .f32-bit[data-val="1"] {
+    background: rgba(193, 74, 74, 0.15);
+    border-color: rgba(193, 74, 74, 0.45);
+    color: var(--red);
+}
+
+.f32-exp .f32-bit[data-val="1"] {
+    background: rgba(69, 112, 122, 0.15);
+    border-color: rgba(69, 112, 122, 0.45);
+    color: var(--link);
+}
+
+.f32-mantissa .f32-bit[data-val="1"] {
+    background: rgba(79, 56, 41, 0.12);
+    border-color: rgba(79, 56, 41, 0.3);
+    color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+    .f32-sign .f32-bit[data-val="1"] {
+        background: rgba(234, 105, 98, 0.15);
+        border-color: rgba(234, 105, 98, 0.45);
     }
+    .f32-exp .f32-bit[data-val="1"] {
+        background: rgba(125, 174, 163, 0.15);
+        border-color: rgba(125, 174, 163, 0.45);
+    }
+    .f32-mantissa .f32-bit[data-val="1"] {
+        background: rgba(221, 199, 161, 0.10);
+        border-color: rgba(221, 199, 161, 0.25);
+    }
+}
+
+.f32-label {
+    font-size: 1em;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+    white-space: nowrap;
+    padding-top: 0.3em;
 }

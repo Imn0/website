@@ -154,6 +154,20 @@ custom_box.addEventListener("input", function () {
     }
 });
 
+u2_dropdown.addEventListener("change", function () {
+    if (decimal_box.value.length > 0) {
+        var dec = parseFloat(decimal_box.value);
+        u2_box.value = toU2(dec.toString(2), u2_dropdown.value);
+    }
+});
+
+u1_dropdown.addEventListener("change", function () {
+    if (decimal_box.value.length > 0) {
+        var dec = parseFloat(decimal_box.value);
+        u1_box.value = toU1(dec.toString(2), u1_dropdown.value);
+    }
+});
+
 function clear() {
     decimal.value = "";
     binary_box.value = "";

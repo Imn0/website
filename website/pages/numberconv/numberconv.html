@@ -2,124 +2,190 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Converter</title>
+        <title>Number Converter — imno</title>
         <link rel="stylesheet" href="numberconv.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
     </head>
 
     <body>
-        <section>
-            <div class="svg-container">
-                <svg
-                    class="blob-motion"
-                    id="visual"
-                    viewBox="0 0 1300 700"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    version="1.1"
-                >
-                    <g
-                        transform="translate(682.9916781942998 358.71482520217114)"
-                    >
-                        <path
-                            id="blob1"
-                            d="M267.4 -377C324.9 -270.5 334.8 -165.6 347.1 -65.7C359.4 34.3 374.1 129.4 356.4 248.5C338.6 367.7 288.3 510.9 189.2 567.6C90.2 624.3 -57.7 594.5 -163.8 523.8C-269.8 453.2 -334.1 341.6 -373.5 234.5C-413 127.3 -427.6 24.7 -430.2 -95.9C-432.8 -216.4 -423.4 -354.9 -349.7 -458.5C-276 -562.2 -138 -631.1 -16.5 -611.4C105 -591.8 210 -483.6 267.4 -377"
-                            fill="#078f59"
-                        ></path>
-                    </g>
-
-                    <g
-                        transform="translate(686.638699815635 303.2537179559695)"
-                        style="visibility: hidden"
-                    >
-                        <path
-                            id="blob2"
-                            d="M353.6 -453C411 -373.2 377.9 -217 385.2 -81.7C392.6 53.5 440.5 167.7 423 287.5C405.4 407.3 322.4 532.5 204.5 585.9C86.5 639.3 -66.4 620.8 -187.5 558.1C-308.7 495.4 -398.1 388.4 -449.7 272.5C-501.3 156.6 -515.1 31.7 -482.6 -73.3C-450.1 -178.3 -371.3 -263.4 -283.1 -337.9C-195 -412.4 -97.5 -476.2 25.3 -506.3C148.1 -536.4 296.1 -532.9 353.6 -453"
-                            fill="#078f59"
-                        ></path>
-                    </g>
-                </svg>
+        <div id="page">
+            <div class="page-header">
+                <h1>number converter</h1>
+                <a class="back-link" href="../../index.html">back</a>
             </div>
 
-            <div class="wrapper">
-                <div>
+            <div class="converter-grid">
+                <div class="field">
+                    <label for="decimal">Decimal</label>
                     <input type="text" id="decimal" class="number-box" />
-                    <a class="description">Decimal</a>
                 </div>
-                <div>
+                <div class="field">
+                    <label for="binary">Binary</label>
                     <input type="text" id="binary" class="number-box" />
-                    <a class="description">Binary</a>
                 </div>
-                <div>
+                <div class="field">
+                    <label for="u2">
+                        U2
+                        <select id="u2-dropdown" class="bits-select">
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                        </select>
+                        bits
+                    </label>
                     <input type="text" id="u2" class="number-box" />
-                    <div style="display: flex; align-items: center">
-                        <a class="description">U2</a>
-                        <select
-                            id="u2-dropdown"
-                            class="dropdown-box description"
-                        >
+                </div>
+                <div class="field">
+                    <label for="u1">
+                        U1
+                        <select id="u1-dropdown" class="bits-select">
                             <option value="4">4</option>
                             <option value="8">8</option>
                             <option value="16">16</option>
                             <option value="32">32</option>
                         </select>
-                        <a class="description">bits</a>
-                    </div>
-                </div>
-                <div>
+                        bits
+                    </label>
                     <input type="text" id="u1" class="number-box" />
-                    <div style="display: flex; align-items: center">
-                        <a class="description">U1</a>
-                        <select
-                            id="u1-dropdown"
-                            class="dropdown-box description"
-                        >
-                            <option value="4">4</option>
-                            <option value="8">8</option>
-                            <option value="16">16</option>
-                            <option value="32">32</option>
-                        </select>
-                        <a class="description"> bits</a>
-                    </div>
                 </div>
-                <div>
+                <div class="field">
+                    <label for="oct">Octal</label>
                     <input type="text" id="oct" class="number-box" />
-                    <a class="description">Oct</a>
                 </div>
-                <div>
+                <div class="field">
+                    <label for="hex">Hexadecimal</label>
                     <input type="text" id="hex" class="number-box" />
-                    <a class="description">Hex</a>
                 </div>
-                <div>
-                    <input type="text" id="float32" class="number-box" />
-                    <a class="description">float32</a>
-                </div>
-                <div>
-                    <input type="text" id="custom" class="number-box" />
-                    <div>
-                        <a class="description">Custom base</a>
-                        <input
-                            maxlength="2"
-                            type="text"
-                            id="custom-size"
-                            class="description"
-                            style="width: 2ch"
-                        />
+                <div class="field float32-field">
+                    <label for="float32">float32</label>
+                    <input type="text" id="float32" class="number-box" maxlength="32" spellcheck="false" autocomplete="off" />
+                    <div class="f32-grid">
+                        <div class="f32-group f32-sign">
+                            <div class="f32-bits" id="f32-bits-sign"></div>
+                            <div class="f32-label">sign</div>
+                        </div>
+                        <div class="f32-group f32-exp">
+                            <div class="f32-bits" id="f32-bits-exp"></div>
+                            <div class="f32-label" id="f32-label-exp">exponent</div>
+                        </div>
+                        <div class="f32-group f32-mantissa">
+                            <div class="f32-bits" id="f32-bits-mantissa"></div>
+                            <div class="f32-label" id="f32-label-mantissa">mantissa</div>
+                        </div>
                     </div>
+                </div>
+                <div class="field">
+                    <label for="custom" class="custom-base-label">
+                        Base
+                        <input maxlength="2" type="text" id="custom-size" class="custom-size-input" value="2" />
+                    </label>
+                    <input type="text" id="custom" class="number-box" />
                 </div>
             </div>
+        </div>
 
-            <script>
-                const tween = KUTE.fromTo(
-                    "#blob1",
-                    { path: "#blob1" },
-                    { path: "#blob2" },
-                    { repeat: 999, duration: 10000, yoyo: true }
-                ).start();
-            </script>
-        </section>
+        <script src="numberconv.js"></script>
+        <script>
+        (function () {
+            "use strict";
+
+            function buildBits(containerId, count, startIndex) {
+                var container = document.getElementById(containerId);
+                for (var i = 0; i < count; i++) {
+                    var btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "f32-bit";
+                    btn.setAttribute("data-val", "0");
+                    btn.setAttribute("data-index", String(startIndex + i));
+                    btn.textContent = "0";
+                    container.appendChild(btn);
+                }
+            }
+
+            buildBits("f32-bits-sign",     1,  0);
+            buildBits("f32-bits-exp",      8,  1);
+            buildBits("f32-bits-mantissa", 23, 9);
+
+            var floatInput = document.getElementById("float32");
+
+            function allBitButtons() {
+                return Array.from(document.querySelectorAll(".f32-bit"))
+                    .sort(function (a, b) {
+                        return Number(a.dataset.index) - Number(b.dataset.index);
+                    });
+            }
+
+            function currentBitString() {
+                return allBitButtons().map(function (b) { return b.dataset.val; }).join("");
+            }
+
+            function updateLabels(bits) {
+                if (!bits || bits.length < 32) return;
+                var expStored = parseInt(bits.slice(1, 9), 2);
+                var expActual = expStored - 127;
+                var expLabel = document.getElementById("f32-label-exp");
+                if (expLabel) {
+                    expLabel.textContent = "exp  stored: " + expStored + "  actual: " + expActual;
+                }
+                var frac = bits.slice(9);
+                var fracNum = parseInt(frac, 2) / Math.pow(2, 23);
+                var fracStr = fracNum.toFixed(6).slice(1);
+                var mantLabel = document.getElementById("f32-label-mantissa");
+                if (mantLabel) {
+                    mantLabel.textContent = "mantissa  1" + fracStr + "\u2026";
+                }
+            }
+
+            function setBitsFromString(str) {
+                var padded = str.padStart(32, "0").slice(0, 32);
+                allBitButtons().forEach(function (btn, i) {
+                    var v = padded[i] === "1" ? "1" : "0";
+                    btn.dataset.val = v;
+                    btn.textContent = v;
+                });
+                updateLabels(padded);
+            }
+
+            updateLabels("0".repeat(32));
+
+            document.querySelector(".f32-grid").addEventListener("click", function (e) {
+                var btn = e.target.closest(".f32-bit");
+                if (!btn) return;
+                var newVal = btn.dataset.val === "1" ? "0" : "1";
+                btn.dataset.val = newVal;
+                btn.textContent = newVal;
+                var bitStr = currentBitString();
+                updateLabels(bitStr);
+                floatInput.value = bitStr;
+                floatInput.dispatchEvent(new Event("input", { bubbles: true }));
+            });
+
+            floatInput.addEventListener("input", function () {
+                var val = floatInput.value;
+                if (/^[01]{1,32}$/.test(val)) {
+                    setBitsFromString(val);
+                }
+            });
+
+            var nativeDescriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
+
+            Object.defineProperty(floatInput, "value", {
+                get: function () {
+                    return nativeDescriptor.get.call(this);
+                },
+                set: function (newValue) {
+                    nativeDescriptor.set.call(this, newValue);
+                    if (typeof newValue === "string" && /^[01]{1,32}$/.test(newValue)) {
+                        setBitsFromString(newValue);
+                    } else {
+                        setBitsFromString("0".repeat(32));
+                        updateLabels("0".repeat(32));
+                    }
+                },
+                configurable: true
+            });
+        })();
+        </script>
     </body>
-
-    <script src="numberconv.js"></script>
 </html>
